@@ -1,18 +1,16 @@
 import 'package:health/health.dart';
 
 class HealthService {
-  final health = HealthFactory();
-
+  final Health health = Health();
 
   Future<int> getStepsLast24Hours() async {
     final now = DateTime.now();
-    final yesterday = now.subtract(Duration(hours: 24));
+    final yesterday = now.subtract(const Duration(hours: 24));
 
     final types = [HealthDataType.STEPS];
     final permissions = [HealthDataAccess.READ];
 
     final requested = await health.requestAuthorization(types, permissions: permissions);
-
     if (!requested) {
       throw Exception("Permisos denegados");
     }
@@ -37,12 +35,9 @@ class HealthService {
     final types = [HealthDataType.STEPS];
     final permissions = [HealthDataAccess.READ];
 
-    await health.requestAuthorization(types, permissions: permissions);
+    final requested = await health.requestAuthorization(types, permissions: permissions);
+    if (!requested) {
+      throw Exception("Permisos denegados");
+    }
   }
-}
-
-class HealthFactory {
-  requestAuthorization(List<HealthDataType> types, {required List<HealthDataAccess> permissions}) {}
-
-  getHealthDataFromTypes({required DateTime startTime, required DateTime endTime, required List<HealthDataType> types}) {}
 }
