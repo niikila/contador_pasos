@@ -1,16 +1,41 @@
-# contador_pasos_nuevo
+# 🦶 Contador de Passos - Flutter + Wear OS
 
-A new Flutter project.
 
-## Getting Started
+## Grupo 
+**Carolina Gonzalez Natlie Fernandez y Nicolás Lara**  **Wear OS**, através da API **Health Connect**
 
-This project is a starting point for a Flutter application.
+---
+## 📱 Funcionalidades
 
-A few resources to get you started if this is your first Flutter project:
+- Conta a quantidade de passos das últimas 24h direto do relógio.
+- Interface simples e responsiva.
+- Arquitetura clara seguindo o padrão **MVVM (Model-View-ViewModel)**.
+- Simulação de dados de passos para testes locais (caso o relógio não forneça dados reais).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🔐 Permissões Utilizadas
+
+O app solicita as seguintes permissões:
+
+- `android.permission.ACTIVITY_RECOGNITION`
+- `android.permission.BODY_SENSORS`
+- `android.permission.health.READ_STEPS`
+- `android.permission.health.CONNECT`
+
+Essas permissões são necessárias para acessar os dados de passos do relógio via Health Connect.
+
+---
+
+## 🔄 Acesso aos Dados via Health Connect
+
+- Utilizamos a API do **Health Connect** para obter dados de passos diretamente do relógio.
+- O app acessa somente os dados do relógio, **não coleta passos do smartphone**.
+- A simulação de dados pode ser ativada para fins de teste, simulando registros de passos locais.
+
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/niikila/contador_pasos.git
+cd contador_pasos
