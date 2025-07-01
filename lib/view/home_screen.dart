@@ -10,17 +10,21 @@ class HomeScreen extends StatelessWidget {
     final viewModel = Provider.of<StepsViewModel>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Contador de Passos')),
+      appBar: AppBar(title: const Text('Contador de Passos')),
       body: Center(
         child: viewModel.steps == 0
             ? ElevatedButton(
-          onPressed: viewModel.loadSteps,
-          child: Text('Carregar passos'),
-        )
+          onPressed: () async {
+            print("Botón presionado");
+            await viewModel.loadSteps();
+            print("Pasos cargados: ${viewModel.steps}");
+          },
+          child: const Text('Carregar passos'),
+            )
             : Text(
           'Passos nas últimas 24h:\n${viewModel.steps}',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 24),
+          style: const TextStyle(fontSize: 24),
         ),
       ),
     );

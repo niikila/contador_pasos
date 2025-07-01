@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'viewsmodel/pasos_viewmodel.dart';  // Asegúrate que esta ruta sea correcta
-import 'view/home_screen.dart';            // Asegúrate que esta ruta sea correcta
+import 'viewsmodel/pasos_viewmodel.dart';
+import 'view/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
